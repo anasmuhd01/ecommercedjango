@@ -1,1 +1,14 @@
+{% load static %}
 <h1>List</h1>
+
+{% for obj in movies %}
+<h1>Titile : {{obj.title}}</h1>
+<img src="{% static 'images/' %}{{ obj.img }}" alt="Logo" width="100" length="100">
+<h2>Year : {{obj.year}}</h2>
+<h2>Type : {{obj.summary}}</h2>
+{% if obj.success %}
+<p>Movie was success</p>
+{% else %}
+<p>Movie was not a success</p>
+{% endif %}
+{% endfor %}
