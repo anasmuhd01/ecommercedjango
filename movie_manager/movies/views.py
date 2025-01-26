@@ -1,10 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . models import MovieInfo
 # Create your views here.
 
 def create(request):
     if request.POST:
-        print(request.POST).get('title')
+        # this print what is POST ed from the fornt end # print(request.POST)
+        # This is used to print what is you needed # print(request.POST.get('title'))
+        title = request.POST.get('title')
+        year = request.POST.get('year')
+        desc = request.POST.get('description')        
+        movie_obj = MovieInfo(title=title, year=year, description=desc)  
+        movie_obj.save()
     return render(request,'create.html')
 
 def list(request):
