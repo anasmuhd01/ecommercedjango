@@ -1,14 +1,31 @@
 {% load static %}
 <h1>List</h1>
+<table>
+    <tr>
+        <th>Titile </th>
+        <th>Description</th>
+        <th>year</th>
+    </tr>
+    <tr>
+        {% for movie_obj in movies %}
+        <td>
+            <h1>Titile : {{movie_obj.title}}</h1>
+        </td>
 
-{% for obj in movies %}
-<h1>Titile : {{obj.title}}</h1>
-<img src="{% static 'images/' %}{{ obj.img }}" alt="Logo" width="100" length="100">
-<h2>Year : {{obj.year}}</h2>
-<h2>Type : {{obj.summary}}</h2>
-{% if obj.success %}
+        <!---- <img src="{% static 'images/' %}{{ obj.img }}" alt="Logo" width="100" length="100"> -->
+        <td>
+            <h2>Year : {{movie_obj.year}}</h2>
+        </td>
+        <td>
+            <h2>Type : {{movie_obj.description}}</h2>
+        </td>
+    </tr>
+
+
+    <!-- {% if obj.success %}
 <p>Movie was success</p>
 {% else %}
 <p>Movie was not a success</p>
-{% endif %}
-{% endfor %}
+{% endif %} -->
+    {% endfor %}
+</table>
